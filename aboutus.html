@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html>
+   <head>
+		<style> 
+			table {
+				   border: none;
+				   align:center;
+				   margin:auto;
+				   width: 200px;
+				   border-collapse: collapse;
+				   margin-top: 0px;
+				   table-layout:fixed;
+			}
+			
+			h1.lightSeaGreen { 
+							  color:#20B2AA;
+							  margin:auto;
+			}
+			
+			.blackLetters {
+						   color: black;
+						   font: Impact;
+						   font-size: 16;
+			}
+			
+			button {
+					background-color:#FFD700;
+					color:black;
+					margin:auto;
+					padding: 0px 100px;  
+					border:2px solid blue;
+					cursor:pointer;
+			}
+			
+			td { 
+				align:center;
+				margin:auto;
+				border-color: none;
+				color:white
+				padding: 0px 1000px;
+				text-align: center;
+				border: none;
+			}
+			
+			button:hover {
+						  background-color: #9C96DB;
+			}
+			
+			a {
+			   cursor: pointer;
+			}
+			
+			td:hover { 
+					  text-decoration:2px solid white;
+					  background-color:#20B2AA; 
+			}
+
+
+			.floating-box {
+						   display: inline-block;
+						   width: 200px;
+						   height: 250px;
+						   margin: 10px;
+						   border: 3px solid #73AD21;  
+			}
+
+			#box {
+				  font-size: 15px;
+			}
+
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+			
+			* {box-sizing:border-box}
+			body {
+				  font-family: Verdana,sans-serif;
+			}
+			.mySlides {
+					   display:none;					  					 
+			}
+
+			/* Slideshow container */
+			.slideshow-container {
+								  max-width: 1000px;
+								  position: relative;
+								  margin: auto;
+			}
+
+			/* Caption text */
+			.text {
+				   color: red;
+				   font-size: 15px;
+				   padding: 8px 12px;
+				   position: absolute;
+				   bottom: 8px;
+				   width: 100%;
+				   text-align: center;
+			}
+
+			/* Number text (1/3 etc) */
+			.numbertext {
+					     color: red;
+					     font-size: 12px;
+					     padding: 8px 12px;
+			             position: absolute;
+			             top: 0;
+			}
+
+			/* The dots/bullets/indicators */
+			.dot {
+				  height: 13px;
+				  width: 13px;
+				  margin: 0 2px;
+				  background-color: #bbb;
+				  border-radius: 50%;
+				  display: inline-block;
+				  transition: background-color 0.6s ease;
+			}
+
+			.active {
+			         background-color: #717171;
+			}
+
+			/* Fading animation */
+			.fade {
+				   -webkit-animation-name: fade;
+				   -webkit-animation-duration: 1.5s;
+				   animation-name: fade;
+				   animation-duration: 1.5s;
+			}
+
+			@-webkit-keyframes fade {
+									 from {
+										   opacity: .4;
+									 } 
+									 to {
+										 opacity: 1;
+									 }
+			}
+
+			@keyframes fade {
+			                 from {
+								   opacity: .4;
+							 } 
+							 to {
+								 opacity: 1;
+							 }
+			}
+
+			/* On smaller screens, decrease text size */
+			@media only screen and (max-width: 300px) {
+													   .text {
+													          font-size: 11px;
+														}
+			}
+			/*Header*/
+			p.button:hover{
+						   color:white;
+						   cursor:pointer;
+			}
+		
+			.header {
+					 height:120px;
+					 background:#1ab2ff;
+					 border:1px solid #1ab2ff;
+					 position:fixed;
+					 top: 0px;
+					 z-index: 1;
+					 width:100%;
+			}
+			.content {
+					  width:960px;
+					  background: #1ab2ff;
+					  border: 1px solid #1ab2ff;
+					  height: 2000px;
+					  margin: 70px auto;
+			}
+		
+			div.relative {
+						  position: relative;
+						  left: 200px;
+			}
+			
+			div.relative1 {
+						   position: relative;
+						   left: 250px;
+			}
+			
+			div.relative2 {
+					       position: relative;
+					       left:400px;
+			}
+			
+			.image {
+					width:100%;
+					margin: 1px top;
+					display:block;
+			}
+		</style>
+		<script src="userdb.js"></script>   
+	</head>
+	<title> About Us </title>
+			<meta name="author" content= "Vedant Shah">
+			<meta name="description" content="This page tells users about P-Bay and provides them with information about Northview Heights Secondary School.">
+			<meta name="created" content="June 9, 2017">
+			<meta name="last-modified" content="June 9, 2017">
+	
+	
+	<!-- 
+	Author Name: Vedant Shah
+	File Name: aboutus.html
+	Date Last Modified: June 9, 2017
+	Date Created: June 9, 2017
+	-->
+	
+	<body style="margin:auto; background-color:#ffa280;">
+		<div class="header">
+			<table style="width:100%; height:50px;"> <!-- This entire table goes credits to Janardan for helping me make a banner at the top of my home page. -->
+				<tr>
+					<td width="10%">
+						<img src="NV Phoenix.png" width="75px" height="75px" alt="The Phoenix"> 
+					</td>
+					<td>
+						<h1 style="text-align:left; color:red;"> The Online Phoenix Store </h1>
+					</td>	
+					<div style="width:2500px;">
+						<td style="color:red;">
+							<a href="canada150.html"><img src="canada.jpg" width="50px" height="30px" alt="Canadian Flag"></a> Canada's 150 Birthday Coupon: ILOVECANADA
+						</td>
+						<td width="100px">
+							<a href="home1.html"><img src="home.jpg" width="95px" height="105px" alt="Home"></a>
+						</td>
+						<td width="100px">
+							<a href="login.html"><img src="login.jpg" width="75px" height="75px" alt="Login"></a>
+						</td>
+						<td width="100px">
+							<a href="inventory.html"><img src="shoppingcart.jpg" width="60px" height="60px" alt="Inventory"></a>
+						</td>
+						<td width="100px">
+							<a href="aboutus.html"><img src="aboutus.jpg" width="60px" height="60px" alt="About Us"></a>
+						</td>
+					</div>
+				</tr>
+			</table>	
+		</div>	
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<center><div>
+			<img src="index.jpg">
+		</div></center>
+		<div>
+			<table style="padding:0px; background-color:#66c2ff; width: 1500px; margin:auto; border-collapse:collapse; border:4px solid grey; border-radius:4px;">
+				<tr>
+					<td>
+						<h1 style="text-align:center; color:red;"> The Online Phoenix Store </h1>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div>
+			<table style="padding:0px; background-image:stars.jpg; width: 1500px; margin:auto; border-collapse:collapse; border-radius:4px;">
+				<tr>
+					<td>
+						<!-- The text below describes why P-Bay was made. This makes the site more authentic. -->
+						<h2 style="text-align: left; font-size:50px; padding-left:10px;"><span style= "color:green;">P</span><span style= "color:red;">-</span><span style= "color:blue;">B</span><span style= "color:purple;">a</span><span style= "color:yellow;">y</span></h2>
+						<h2> About Us </h2>
+						<p> P-Bay- now is innovation. The creator and designer of this e-commerce platform, P-Bay, is Vedant Shah who is currently in grade 10. 
+						Our company was established in June 2017 and we had decided in April, 2017 to go online and create P-Bay. It is a private online store 
+						meant for students at Northview Heights Secondary School and it helps students see different laptop brands and different prices side 
+						by side based on their affordability. </p> 
+						<p> The Online Phoenix Store decided to sell laptops to Northview students because laptops nowadays 
+						are a necessity for students in high school as majority of their schoolwork is done online as they mostly would submit assignments and 
+						projects through sites such as Moodle, D2L, and Google Classroom. Also, laptops are a very prominent aspect of a high school student’s 
+						life because it enables students to connect with their friends through online social media and be able to work with their classmates 
+						on group projects through applications such as Skype. Moreover, everything relies on the online world and the laptops will assist the 
+						students in many ways. They will be able to research for their assignments as well as hand them in. Students would be able write 
+						assignments in applications such as Microsoft Word, and do much more with the laptops the Phoenix store intends to sell through the 
+						e-commerce platform P-Bay. </p>
+						<p> The Phoenix store has chosen to sell laptops to students at Northview Heights Secondary School via P-Bay 
+						because students would be able to buy laptops at a lower cost rather than spending a great amount of money for the same laptops from 
+						companies such as The Source or Best Buy. Another to why the Phoenix store will be selling laptops through P-Bay is because several 
+						students have only one computer or laptop at home and this can be hard for students to get schoolwork completed. Buying a laptop will 
+						allow them to finish their homework and assignments quickly as they would not have share one computer or laptop with their family 
+						members all the time. The Phoenix store intends to sell many types of laptops from many different companies that include Dell, Lenovo, 
+						HP (Hewlett-Packard), Sony, Asus, Acer, Microsoft, and Samsung. The list above also consists of Apple’s MacBook’s. The reason to why 
+						the Phoenix store has chosen to sell laptops from the companies listed above is because these companies are the best laptop brands of 
+						2016 and 2017 and they want all students to get the best experience from their laptops. </p> 
+					</td>
+				</tr>
+			</table>	
+			<div class="relative">
+				<!-- This allows users to contact the school if they wish. -->
+				<u><h2>Contact Us</h2></u>
+			</div>
+			<div class="relative1">
+				<strong>Northview Heights Secondary School</strong>   
+				<ul>
+					<li> Address: 550 Finch Ave. West, Toronto, ON </li>   
+					<li> Postal Code: M2R 1N6 </li>
+					<li> Phone: 416.395.3290 </li>  
+					<li> Fax: 416.395.3294 </li> 
+					<li> Email: <a href="mailto:northview@tdsb.on.ca">northview@tdsb.on.ca </a> </li>
+					<li> Principal:&nbsp;Peter Paputsis    
+					<li> Vice-Principals:&nbsp;Ken Do, Rosalie Griffith, Florence Ormonde </li> 
+					<li> Trustee: Alexandra Lulka    
+					<li> Superintendent:&nbsp;Elizabeth Addo </li>	
+				</ul>
+				<!-- Below is a map of where Northview Heights Secondary School is located. -->
+				<div><iframe width="425px" height="300px" frameborder="0" marginheight="0" marginwidth="0" src="https://maps.google.ca/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=550+Finch+Ave.+West&amp;aq=&amp;sll=43.717944,-79.46396&amp;sspn=0.399003,0.617294&amp;ie=UTF8&amp;hq=&amp;hnear=550+Finch+Ave+W,+North+York,+Ontario+M2R+1N6&amp;t=m&amp;z=14&amp;ll=43.773748,-79.446164&amp;output=embed"></iframe>    
+					<br><small><a href="https://maps.google.ca/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=550+Finch+Ave.+West&amp;aq=&amp;sll=43.717944,-79.46396&amp;sspn=0.399003,0.617294&amp;ie=UTF8&amp;hq=&amp;hnear=550+Finch+Ave+W,+North+York,+Ontario+M2R+1N6&amp;t=m&amp;z=14&amp;ll=43.773748,-79.446164" style="color:#0000FF;text-align:left">View Larger Map</a></small></div>
+				</div> <!-- Ask Mr. Wong for help. -->
+				<div class="relative">
+				<!-- Below is how users can stay in touch with the school and follow the school on social media. -->
+					<u><h2>Stay In Touch With Us</h2></u>
+				</div>
+				<div class="relative1">
+					<div style="text-align:left;"><strong>Northview Heights Secondary School</strong>    
+					<br>Twitter:&nbsp;<a href="http://twitter.com/NorthviewHtsSS" target="_blank">@NorthviewHtsSS</a>    <br>    <br><strong>Student Council</strong>    <br><span>Twitter:&nbsp;</span><a href="http://twitter.com/NorthviewHSS" target="_blank">@NorthviewHSS</a>    <br>Facebook:&nbsp;<a href="http://www.facebook.com/NorthviewHSS" target="_blank">www.facebook.com/NorthviewHSS</a>    <br>    <br><strong>Basketball Team</strong>    <br>Twitter:&nbsp;<a href="http://twitter.com/NHSSBasketball" target="_blank">@NHSSBasketball</a>    <br>    <br><strong>Honours Science, Mathematics, and Technology (HMST)</strong>    <br>Twitter: <a href="http://twitter.com/NorthviewHMST" target="_blank">@NorthviewHMST</a>    <br>    <br><strong>Me to We Club</strong>    <br>Twitter:&nbsp;<a href="https://twitter.com/MeToWeNHSS">@MeToWeNHSS</a><span>&nbsp;</span>    <br><span>Facebook: <a href="https://www.facebook.com/NorthviewHeightsMetoWe">Northview Heights Me to We</a>    <br>Instagram: northviewmetowe    <br>Snapchat: NorthviewMetoWe</span>&nbsp;    <br>    <br><span><strong>Health and Physical Education, Phoenix Athletic Council</strong></span>    <br>Twitter : <a href="http://www.twitter.com/nhss_phoenix" target="_blank">&nbsp;@nhss_phoenix</a>    <br>Instagram: &nbsp;nhss_phoenixpride    <br>    <br><strong>Guidance</strong>    <br>&#8203;Twitter: <a href="https://twitter.com/NHSSGuidance" target="_blank">@NHSSGuidance    <br>    <br></a>Library    <br>Twitter: <a href="https://twitter.com/nhsslibrary" target="_blank">@NHSSlibrary</a>    <br></div>
+				</div>
+				<br>
+				<br>
+				<div class="relative2">
+					<h2>
+						<!-- I have a made a phrase that is like a motto for the Online Phoenix Store as many big companies have mottos for their company. -->
+						<span style="color:purple;"> AS. </span><span style="color:blue;"> SMART. </span><span style="color:green;"> AS.</span><span style="color:yellow;"> A.</span><span style="color:red;"> PHOENIX. </span>
+					</h2>
+				</div>
+	</body>
+	<footer style="text-align:center; color:red; background-color:black; padding-bottom:5px; padding-top:5px;">
+		P-Bay. The Online Phoenix Store. Created and Designed by Vedant Shah.
+	</footer>
+</html> 
+
+
+
+

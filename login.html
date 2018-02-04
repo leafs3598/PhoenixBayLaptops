@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+   <head>
+		<style> 
+			table {
+				   border: none;
+				   align:center;
+				   margin:auto;
+				   width: 200px;
+				   border-collapse: collapse;
+				   margin-top: 0px;
+				   table-layout:fixed;
+			}
+			
+			h1.lightSeaGreen { 
+							  color:#20B2AA;
+							  margin:auto;
+			}
+			
+			.blackLetters {
+						   color: black;
+						   font: Impact;
+						   font-size: 16;
+			}
+			
+			button {
+					background-color:#FFD700;
+					color:black;
+					margin:auto;
+					padding: 0px 100px;  
+					border:2px solid blue;
+					cursor:pointer;
+			}
+			
+			td { 
+				align:center;
+				margin:auto;
+				border-color: none;
+				color:white
+				padding: 0px 1000px;
+				text-align: center;
+				border: none;
+			}
+			
+			button:hover {
+						  background-color: #9C96DB;
+			}
+			
+			a {
+			   cursor: pointer;
+			}
+			
+			td:hover { 
+					  text-decoration:2px solid white;
+					  background-color:#20B2AA; 
+			}
+
+
+			.floating-box {
+						   display: inline-block;
+						   width: 200px;
+						   height: 250px;
+						   margin: 10px;
+						   border: 3px solid #73AD21;  
+			}
+
+		
+			.header {
+					 height:120px;
+					 background:#1ab2ff;
+					 border:1px solid #1ab2ff;
+					 position:fixed;
+					 top: 0px;
+					 z-index: 1;
+					 width:100%;
+			}
+			.content {
+					  width:960px;
+					  background: #1ab2ff;
+					  border: 1px solid #1ab2ff;
+					  height: 2000px;
+					  margin: 70px auto;
+			}
+		
+			.image {
+					width:100%;
+					margin: 1px top;
+					display:block;
+			}
+		</style>
+		<script src="userdb.js"></script> 
+	</head>
+	<title> Log In or Sign Up </title>
+			<meta name="author" content= "Vedant Shah">
+			<meta name="description" content="This page is where users can log in to their accounts or sign up to start purchasing laptops.">
+			<meta name="created" content="June 7, 2017">
+			<meta name="last-modified" content="June 7, 2017">
+	
+	
+	<!-- 
+	Author Name: Vedant Shah
+	File Name: login.html
+	Date Last Modified: June 7, 2017
+	Date Created: June 7, 2017
+	-->
+	
+	<body style="margin:auto; background-color:#ffa280;">
+	<!-- The background is a plain background because I want it to blend in with the text and tables on this page. -->
+		<div class="header">
+				<table style="width:100%; height:50px;"> <!-- This entire table goes credits to Janardan for helping me make a banner at the top of my home page. -->
+					<tr>
+						<td width="10%">
+							<img src="NV Phoenix.png" width="75px" height="75px" alt="The Phoenix"> 
+						</td>
+						<td>
+							<h1 style="text-align:left; color:red;"> The Online Phoenix Store </h1>
+						</td>	
+						<div style="width:2500px;">
+							<td style="color:red;">
+								<a href="canada150.html"><img src="canada.jpg" width="50px" height="30px" alt="Canadian Flag"></a> Canada's 150 Birthday Coupon: ILOVECANADA
+							</td>
+							<td width="100px">
+								<a href="home1.html"><img src="home.jpg" width="95px" height="105px" alt="Home"></a>
+							</td>
+							<td width="100px">
+								<a href="login.html"><img src="login.jpg" width="75px" height="75px" alt="Login"></a>
+							</td>
+							<td width="100px">
+								<a href="inventory.html"><img src="shoppingcart.jpg" width="60px" height="60px" alt="Inventory"></a>
+							</td>
+							<td width="100px">
+								<a href="aboutus.html"><img src="aboutus.jpg" width="60px" height="60px" alt="About Us"></a>
+							</td>
+						</div>
+					</tr>
+				</table>	
+		</div>	
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<center><div>
+			<img src="index.jpg">
+		</div></center>
+		<div>
+			<table style="padding:0px; background-color:#66c2ff; width: 1500px; margin:auto; border-collapse:collapse; border:4px solid grey; border-radius:4px;">
+				<tr>
+					<td>
+						<h1 style="text-align:center; color:red;"> The Online Phoenix Store </h1>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<table style="margin:auto; width:90%;">
+			<tr>
+				<td>
+					<form name="registerForm">
+						<h2 style="text-align: left; font-size:50px; padding-left:10px;"><span style= "color:green;">P</span><span style= "color:red;">-</span><span style= "color:blue;">B</span><span style= "color:purple;">a</span><span style= "color:yellow;">y</span></h2>
+						<h1 style="color:#DC143C;"><b><u> Log In or Sign Up </u></b></h1>
+						<h3 style="color:#B8860B;"><u> Welcome to P-Bay! Please log in below if you are a returning customer or sign up below if you are a new customer! </u></h3>
+						<img src="login1.jpg" width="150px" height="150px" alt="Log In">
+						<br>
+						<br>
+						<!-- I have set the username and password to be a minimum of 8 characters and a maximum of 16 characters because it somewhat protects the user's username and password so no one other than them would be able to log in into their account. -->
+						<h2> Sign Up </h2>
+						Username: <input name="username" type="text" required><br>  
+						*Username must be between 8-16 characters!  
+						<br>
+						Password: <input name="password" type="password" required><br>
+						*Password must be between 8-16 characters! Also, try not to use your name as your password.
+						<br>
+						<button type="button" onclick="register()">Register</button>
+					</form>							
+					<p id="answer"></p>
+					<form name="loginForm">
+						<!-- The user would be able to sign in to their account by entering their username and password so they can purchase laptops if they wish. -->
+						<h2> Log In </h2>
+						Username: <input name="username" type="text" required> <br>
+						Password: <input name="password" type="password" required><br>
+						<button type="button" onclick="login()">Login</button>
+					</form>
+					<p id="answer"></p>
+					<!-- I want to display this fact because it is amazing to learn that the co-founder of one of the largest companies in the world was the executive producer of Toy Story! That is very fascinating. -->
+					<h2 style="color:#000080;"> Did you know that takes Steve Jobbs, co-founder of Apple Inc., was the executive producer of Toy Story! 
+						                    It was filmed twice because Steve did not like the first movie that was made! </h2>
+				</td>
+			</tr>
+		</table>
+	</body>
+	<footer style="text-align:center; color:red; background-color:black; padding-bottom:5px; padding-top:5px;">
+		P-Bay. The Online Phoenix Store. Created and Designed by Vedant Shah.
+	</footer>
+</html> 

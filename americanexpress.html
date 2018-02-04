@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+   <head>
+		<style> 
+			table {
+				   border: 2px solid black;
+				   align:center;
+				   margin:auto;
+				   width: 750px;
+				   border-collapse: collapse;
+				   margin-top: 0px;
+				   table-layout:fixed;
+			}
+			
+			h1.lightSeaGreen { 
+							  color:#20B2AA;
+							  margin:auto;
+			}
+			
+			.blackLetters {
+						   color: black;
+						   font: Impact;
+						   font-size: 16;
+			}
+			
+			button {
+					background-color:#FFD700;
+					color:black;
+					margin:auto;
+					padding: 0px 100px;  
+					border:2px solid blue;
+					cursor:pointer;
+			}
+			
+			td { 
+				align:center;
+				margin:auto;
+				border-color: none;
+				color:white
+				padding: 0px 1000px;
+				text-align: center;
+				border: none;
+			}
+			
+			button:hover {
+						  background-color: #9C96DB;
+			}
+			
+			a {
+			   cursor: pointer;
+			}
+			
+			td:hover { 
+					  text-decoration:2px solid white;
+					  background-color:#20B2AA; 
+			}
+
+
+			.floating-box {
+						   display: inline-block;
+						   width: 200px;
+						   height: 250px;
+						   margin: 10px;
+						   border: 3px solid #73AD21;  
+			}
+
+			#box {
+				  font-size: 15px;
+			}
+		
+			.header {
+					height:120px;
+					background:#1ab2ff;
+				    border:1px solid #1ab2ff;
+				    position:fixed;
+				    top: 0px;
+				    z-index: 1;
+				    width:100%;
+			}
+			.content {
+					  width:960px;
+					  background: #1ab2ff;
+					  border: 1px solid #1ab2ff;
+					  height: 2000px;
+					  margin: 70px auto;
+			}
+			
+			div.relative {
+						  position: relative;
+						  left: 200px;
+			}
+			
+			div.relative1 {
+						   position: relative;
+						   left: 250px;
+			}
+			
+			div.relative2 {
+						   position: relative;
+						   left:400px
+			}
+		</style>
+		<script src="userdb.js"></script>   
+		<script>
+			var creditCardNumber;
+			
+			function getUrlVars() {
+				var vars = {};
+				var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+				vars[key] = value;
+				});
+				return vars;
+			}
+			/* END of DO NOT CHANGE */
+			
+			function encrypt(creditCardNumber)
+			{
+				var creditCard;
+				var encrypt1;
+				encrypt1 = "";
+					 
+				for(var e = 0; e < creditCard.length-1; e++)
+				{
+					encrypt1 = encrypt1 + String.fromCharCode(creditCard.charCodeAt(i) + 3);
+				}
+				return encrypt1;
+			}
+			
+			//The following function checks if the user has entered all the required information. If the user does not enter all the information, an X will appear wherever the user has not entered information.
+			function check(){
+				var creditCardOwner, creditCardNumber, ccv, expirationDate;
+				
+				creditCardOwner = document.crediCardInformation.creditCardOwner.value;
+				creditCardNumber = document.crediCardInformation.creditCardNumber.value;
+				ccv = document.crediCardInformation.ccv.value;
+				expirationDateid = document.crediCardInformation.expirationDateid.value;
+				
+				if(creditCardOwner != "")
+				{
+					document.getElementById("creditCardOwnerid").src = "checkmark.jpg"; 
+					document.getElementById("creditCardOwnerid").style.alt = "You are correct!";
+					document.getElementById("creditCardOwnerid").style.width = "50px";
+					document.getElementById("creditCardOwnerid").style.height = "50px";
+				}
+				
+				else
+				{
+					document.getElementById("creditCardOwnerid").src = "incorrect.jpg";
+					document.getElementById("creditCardOwnerid").style.alt = "You are wrong!";
+					document.getElementById("creditCardOwnerid").style.width = "50px";
+					document.getElementById("creditCardOwnerid").style.height = "50px";
+				}
+				
+				if(creditCardNumber != "")
+				{
+					document.getElementById("creditCardNumberid").src = "checkmark.jpg"; 
+					document.getElementById("creditCardNumberid").style.alt = "You are correct!";
+					document.getElementById("creditCardNumberid").style.width = "50px";
+					document.getElementById("creditCardNumberid").style.height = "50px";
+				}
+				
+				else
+				{
+					document.getElementById("creditCardNumberid").src = "incorrect.jpg";
+					document.getElementById("creditCardNumberid").style.alt = "You are wrong!";
+					document.getElementById("creditCardNumberid").style.width = "50px";
+					document.getElementById("creditCardNumberid").style.height = "50px";
+				}
+				
+				if(ccv != "")
+				{
+					document.getElementById("ccvid").src = "checkmark.jpg"; 
+					document.getElementById("ccvid").style.alt = "You are correct!";
+					document.getElementById("ccvid").style.width = "50px";
+					document.getElementById("ccvid").style.height = "50px";
+				}
+				
+				else
+				{
+					document.getElementById("ccvid").src = "incorrect.jpg";
+					document.getElementById("ccvid").style.alt = "You are wrong!";
+					document.getElementById("ccvid").style.width = "50px";
+					document.getElementById("ccvid").style.height = "50px";
+				}
+				
+				if(expirationDateid != "")
+				{
+					document.getElementById("expirationDateid").src = "checkmark.jpg"; 
+					document.getElementById("expirationDateid").style.alt = "You are correct!";
+					document.getElementById("expirationDateid").style.width = "50px";
+					document.getElementById("expirationDateid").style.height = "50px";
+				}
+				
+				else
+				{
+					document.getElementById("expirationDateid").src = "incorrect.jpg";
+					document.getElementById("expirationDateid").style.alt = "You are wrong!";
+					document.getElementById("expirationDateid").style.width = "50px";
+					document.getElementById("expirationDateid").style.height = "50px";
+				}
+			}
+		</script>
+	</head>
+	<title> American Express </title>
+			<meta name="author" content= "Vedant Shah">
+			<meta name="description" content="This page is where customers can pay the cost of their purchase with an American Express credit card.">
+			<meta name="created" content="June 9, 2017">
+			<meta name="last-modified" content="June 19, 2017">
+	
+	
+	
+	<!-- 
+	Author Name: Vedant Shah
+	File Name: aboutus.html
+	Date Last Modified: June 19, 2017
+	Date Created: June 9, 2017
+	-->
+	
+	<body style="margin:auto; background-color:#ffa280;">
+		<div class="header">
+			<table style="width:100%; height:50px; border:none;"> <!-- This entire table goes credits to Janardan for helping me make a banner at the top of my home page. -->
+				<tr>
+					<td width="10%">
+						<img src="NV Phoenix.png" width="75px" height="75px" alt="The Phoenix"> 
+					</td>
+					<td>
+						<h1 style="text-align:left; color:red;"> The Online Phoenix Store </h1>
+					</td>	
+					<div style="width:2500px;">
+						<td style="color:red;">
+							<a href="canada150.html"><img src="canada.jpg" width="50px" height="30px" alt="Canadian Flag"></a> Canada's 150 Birthday Coupon: ILOVECANADA
+						</td>
+					</div>
+				</tr>
+			</table>	
+		</div>	
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<center><div>
+			<img src="index.jpg">
+		</div></center>
+		<div>
+			<table style="padding:0px; background-color:#66c2ff; width: 1500px; margin:auto; border-collapse:collapse; border:4px solid grey; border-radius:4px;">
+				<tr>
+					<td>
+						<h1 style="text-align:center; color:red;"> The Online Phoenix Store </h1>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<h2 style="text-align: left; font-size:50px; padding-left:10px;"><span style= "color:green;">P</span><span style= "color:red;">-</span><span style= "color:blue;">B</span><span style= "color:purple;">a</span><span style= "color:yellow;">y</span></h2>
+		<div>
+			<table>
+				<tr>
+					<td>
+						<h2> American Express </h2>
+						<!-- This is one of three ways users can pay the cost of their purchase. -->
+						<script type="text/javascript">
+							var cc_number_saved="";
+							
+							function checkLuhn(input)
+							{
+								var sum=0;
+								var numdigits=input.length;
+								var parity=numdigits%2;
+								
+								//Below is the code that checks for the validity for a credit card. Please do not enter your actual credit card. Just enter some digits for your security.								
+								for(var i=0; i<numdigits; i++)
+								{
+									var digit=parseInt(input.charAt(i))
+											
+									if(i%4==parity)digit*=5;
+													
+									if(digit>9)digit-=9;sum+=digit;
+								}
+								return(sum%10)==0;
+							}
+								
+						</script>
+						<form name="crediCardInformation" method="post" action="/cc-validate.html">
+							<fieldset>
+								<div>
+									<img id="creditCardOwnerid"><label> Credit Card Owner </label> 
+									<!-- Here, all the user would do is enter their name and so when the laptop is delivered, a P-Bay employee can confirm that is the same person who ordered the laptop. -->
+									<input type="text" name="creditCardOwner">
+								</div>
+								<div>
+									<img id="ccvid"><img id="ccvid"><label> CCV </label>
+									<!-- This is where the user enters their credit card's security code. -->
+									<input type="text" name="ccv">
+								</div>
+								<div>
+									<form name="creditCardNumberForm">
+										<!-- Below, the user enters their credit card number. -->
+										<img id="creditCardNumberid"> Card Number <input type="text" name="creditCardNumber" size="24" maxlength="20" name="cc_number" onBlur="// save input string and strip out non-numbers cc_number_saved = this.value; this.value = this.value.replace(/[^\d]/g, ''); 
+										if(!checkLuhn(this.value)) 
+										{
+											alert('Sorry, that is not a valid credit card number. Please try again!');
+											this.value = '';
+										}
+										" onFocus="// restore saved string
+										if(this.value != cc_number_saved) this.value = cc_number_saved;
+										"> <input type="submit">
+										<!-- This code is courtesy of the Art of Web. -->
+									</form> 
+								</div>
+								<div>
+									<!-- The user would enter the expiration date of their credit card below. -->
+									<img id="expirationDateid"><label> Expiration Date </label>
+									<select>
+										<option value="01">January</option>
+										<option value="02">February </option>
+										<option value="03">March</option>
+										<option value="04">April</option>
+										<option value="05">May</option>
+										<option value="06">June</option>
+										<option value="07">July</option>
+										<option value="08">August</option>
+										<option value="09">September</option>
+										<option value="10">October</option>
+										<option value="11">November</option>
+										<option value="12">December</option>
+									</select>
+									<select>
+										<option value="16"> 2016</option>
+										<option value="17"> 2017</option>
+										<option value="18"> 2018</option>
+										<option value="19"> 2019</option>
+										<option value="20"> 2020</option>
+										<option value="21"> 2021</option>
+									</select>
+								</div>
+							</fieldset>
+						</form>
+						<p></p id="response">
+						<button type="button" onclick="check()"> Check Credit Card Validation </button>
+						<!-- Users have two options of picking a method of delivery. -->
+						<ol>
+							<li>
+								<label><input type="radio" name="deliverymethod" value="delivery1"> Same day Delivery (You will be charged an additional $15.00 on your total purchase.) </label>
+								<!-- There will be a fee charged if the user picks same day delivery because if P-Bay did not charge this, the company would losing profits. -->
+							</li>
+							<li>
+								<label><input type="radio" name="deliverymethod" value="delivery2"> After Four Business Days </label>
+							</li>
+						</ol>
+						<button style="align:center;"><a href="goodbye.html"> Place My Order Now </a></button>
+						<!-- The button above would lead the user to the "goodbye page". -->
+					</td>
+				</tr>
+			</table>
+		</div>
+	</body>
+	<footer style="text-align:center; color:red; background-color:black; padding-bottom:5px; padding-top:5px;">
+		P-Bay. The Online Phoenix Store. Created and Designed by Vedant Shah.
+	</footer>
+</html>
+
+

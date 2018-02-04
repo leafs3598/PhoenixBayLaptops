@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html>
+   <head>
+		<style> 
+			table {
+				   border: 2px solid black;
+				   align:center;
+				   margin:auto;
+				   width: 750px;
+				   border-collapse: collapse;
+				   margin-top: 0px;
+				   table-layout:fixed;
+			}
+			
+			h1.lightSeaGreen { 
+							  color:#20B2AA;
+							  margin:auto;
+			}
+			
+			.blackLetters {
+						   color: black;
+						   font: Impact;
+						   font-size: 16;
+			}
+			
+			button {
+					background-color:#FFD700;
+					color:black;
+					margin:auto;
+					padding: 0px 100px;  
+					border:2px solid blue;
+					cursor:pointer;
+			}
+			
+			td { 
+				align:center;
+				margin:auto;
+				border-color: none;
+				color:white
+				padding: 0px 1000px;
+				text-align: center;
+				border: none;
+			}
+			
+			button:hover {
+						  background-color: #9C96DB;
+			}
+			
+			a {
+			   cursor: pointer;
+			}
+			
+			td:hover { 
+					  text-decoration:2px solid white;
+					  background-color:#20B2AA; 
+			}
+
+
+			.floating-box {
+						   display: inline-block;
+						   width: 200px;
+						   height: 250px;
+						   margin: 10px;
+						   border: 3px solid #73AD21;  
+			}
+
+			#box {
+					  font-size: 15px;
+			}
+
+			
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+			* {box-sizing:border-box}
+			body {font-family: Verdana,sans-serif;}
+			.mySlides {display:none}
+
+			/* Slideshow container */
+			.slideshow-container {
+			  max-width: 1000px;
+			  position: relative;
+			  margin: auto;
+			}
+
+			/* Caption text */
+			.text {
+			  color: #f2f2f2;
+			  font-size: 15px;
+			  padding: 8px 12px;
+			  position: absolute;
+			  bottom: 8px;
+			  width: 100%;
+			  text-align: center;
+			}
+
+			/* Number text (1/3 etc) */
+			.numbertext {
+			  color: #f2f2f2;
+			  font-size: 12px;
+			  padding: 8px 12px;
+			  position: absolute;
+			  top: 0;
+			}
+
+			/* The dots/bullets/indicators */
+			.dot {
+			  height: 13px;
+			  width: 13px;
+			  margin: 0 2px;
+			  background-color: #bbb;
+			  border-radius: 50%;
+			  display: inline-block;
+			  transition: background-color 0.6s ease;
+			}
+
+			.active {
+			  background-color: #717171;
+			}
+
+			/* Fading animation */
+			.fade {
+			  -webkit-animation-name: fade;
+			  -webkit-animation-duration: 1.5s;
+			  animation-name: fade;
+			  animation-duration: 1.5s;
+			}
+
+			@-webkit-keyframes fade {
+			  from {opacity: .4} 
+			  to {opacity: 1}
+			}
+
+			@keyframes fade {
+			  from {opacity: .4} 
+			  to {opacity: 1}
+			}
+
+			/* On smaller screens, decrease text size */
+			@media only screen and (max-width: 300px) {
+			  .text {font-size: 11px}
+			}
+			/*Header*/
+			p.button:hover{
+						   color:white;
+						   cursor:pointer;
+		}
+		
+		.header {
+				height:120px;
+				background:pink;
+				border:1px solid pink;
+				position:fixed;
+				top: 0px;
+				z-index: 1;
+				width:100%;
+		}
+		.content {
+			width:960px;
+			background: pink;
+			border: 1px solid pink;
+			height: 2000px;
+			margin: 70px auto;
+		}
+		
+		div.relative {
+					  position: relative;
+					  left: 200px;
+		}
+		
+		div.relative1 {
+						position: relative;
+						left: 250px;
+		}
+		
+		div.relative2 {
+				 position: relative;
+				 left:400px
+		}
+		
+		.center { 
+				 text-align: center; 
+				 list-style-position:inside;
+		}
+
+		
+		</style>
+		<script>
+			/*  DO NOT CHANGE
+			 *	the following function is retrieved from http://papermashup.com/read-url-get-variables-withjavascript/
+			 *  
+			 */
+			function getUrlVars() {
+				var vars = {};
+				var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+				vars[key] = value;
+				});
+				return vars;
+			}
+			
+			function loadParams(){
+				var username = getUrlVars()["username"];
+				document.getElementById("Welcome").innerHTML = "Welcome, " + username + "!";
+			}
+			
+			function check(){
+				var firstname;
+				var lastname; 
+				var country; 
+				var streetaddress1; 
+				var streetaddress2; 
+				var city; 
+				var province; 
+				var postalCode; 
+				var phoneNumber;
+				
+				firstname = document.contactAndShippingInformation.firstname.value;
+				lastname = document.contactAndShippingInformation.lastname.value;
+				country = document.contactAndShippingInformation.country.value;
+				streetaddress1 = document.contactAndShippingInformation.streetaddress1.value;
+				streetaddress2 = document.contactAndShippingInformation.streetaddress2.value;
+				city = document.contactAndShippingInformation.city.value;
+				province = document.contactAndShippingInformation.province.value;
+				postalCode = document.contactAndShippingInformation.postalCode.value;
+				phoneNumber = document.contactAndShippingInformation.phoneNumber.value;
+			
+				if(firstname == "")
+				{
+					document.getElementById("firstname").src = "incorrect.jpg"; 
+					document.getElementById("firstname").style.width = "50px";
+					document.getElementById("firstname").style.height = "50px";
+					document.getElementById("firstname").innerHTML = "Please enter your first name name. Thank you!";
+				}
+				
+				else
+				{
+					document.getElementById("firstname").src = "checkmark.jpg";
+					document.getElementById("firstname").style.alt = "Thank you for entering the required information!";
+					document.getElementById("firstname").style.width = "50px";
+					document.getElementById("firstname").style.height = "50px";
+				}
+				
+				if(lastname == "")
+				{
+					document.getElementById("lastname").src = "incorrect.jpg";
+					document.getElementById("lastname").style.width = "50px";
+					document.getElementById("lastname").style.height = "50px";
+					document.getElementById("lastname").innerHTML = "Please enter your last name. Thank you!";
+				}
+				
+				else
+				{
+					document.getElementById("lastname").src = "checkmark.jpg";
+					document.getElementById("lastname").style.alt = "Thank you for entering the required information!";
+					document.getElementById("lastname").style.width = "50px";
+					document.getElementById("lastname").style.height = "50px";
+				}
+				
+				if(country != "")
+				{
+					document.getElementById("country").src = "checkmark.jpg";
+					document.getElementById("country").style.alt = "Thank you for entering the required information!";
+					document.getElementById("country").style.width = "50px";
+					document.getElementById("country").style.height = "50px";
+				}
+				
+				if(streetaddress1 == "")
+				{
+					document.getElementById("streetaddress1").src = "incorrect.jpg";
+					document.getElementById("streetaddress1").style.width = "50px";
+					document.getElementById("streetaddress1").style.height = "50px";
+					document.getElementById("streetaddress1").innerHTML = "Please enter a valid address your shipment can be shipped. Thank you.";					
+				}
+				
+				else
+				{
+					document.getElementById("streetaddress1").src = "checkmark.jpg";
+					document.getElementById("streetaddress1").style.alt = "Thank you for entering the required information!";
+					document.getElementById("streetaddress1").style.width = "50px";
+					document.getElementById("streetaddress1").style.height = "50px";
+				}
+				
+				if(streetaddress2 == "")
+				{
+					document.getElementById("streetaddress2").src = "incorrect.jpg"; 
+					document.getElementById("streetaddress2").style.width = "50px";
+					document.getElementById("streetaddress2").style.height = "50px";
+					document.getElementById("streetaddress2").innerHTML = "Please enter a valid second location your shipment can be shipped. Thank you.";
+				}
+				
+				else
+				{
+					document.getElementById("streetaddress2").src = "checkmark.jpg";
+					document.getElementById("streetaddress2").style.alt = "Thank you for entering the required information!";
+					document.getElementById("streetaddress2").style.width = "50px";
+					document.getElementById("streetaddress2").style.height = "50px";
+				}
+				
+				if(city == "")
+				{
+					document.getElementById("city").src = "incorrect.jpg";
+					document.getElementById("city").style.width = "50px";
+					document.getElementById("city").style.height = "50px";
+					document.getElementById("city").innerHTML = "Please enter the city you live in. Thank you!";
+				}
+				
+				else
+				{
+					document.getElementById("city").src = "checkmark.jpg";
+					document.getElementById("city").style.alt = "Thank you for entering the required information!";
+					document.getElementById("city").style.width = "50px";
+					document.getElementById("city").style.height = "50px";
+				}
+				
+				if(province != "")
+				{
+					document.getElementById("province").src = "checkmark.jpg";
+					document.getElementById("province").style.alt = "Thank you for entering the required information!";
+					document.getElementById("province").style.width = "50px";
+					document.getElementById("province").style.height = "50px";
+				}
+				
+				
+				if(postalCode == "")
+				{
+					document.getElementById("postalCode").src = "incorrect.jpg"; 
+					document.getElementById("postalCode").style.width = "50px";
+					document.getElementById("postalCode").style.height = "50px";
+					document.getElementById("postalCode").innerHTML = "Please enter a postal code. Thank you.";
+				}
+				
+				else
+				{
+					document.getElementById("postalCode").src = "checkmark.jpg";
+					document.getElementById("postalCode").style.alt = "Thank you for entering the required information!";
+					document.getElementById("postalCode").style.width = "50px";
+					document.getElementById("postalCode").style.height = "50px";
+				}
+				
+				if(phoneNumber == "")
+				{
+					document.getElementById("phoneNumber").src = "incorrect.jpg"; 
+					document.getElementById("phoneNumber").style.width = "50px";
+					document.getElementById("phoneNumber").style.height = "50px";
+					document.getElementById("phoneNumber").innerHTML = "Please enter a valid phone number so we can contact you if there is any problem in your shipment can be shipped. Thank you.";
+				}
+				
+				else
+				{
+					document.getElementById("phoneNumber").src = "checkmark.jpg";
+					document.getElementById("phoneNumber").style.alt = "Thank you for entering the required information!";
+					document.getElementById("phoneNumber").style.width = "50px";
+					document.getElementById("phoneNumber").style.height = "50px";
+				}
+				
+				
+			}
+		</script>
+		<script src="userdb.js"></script>  
+		<script src="priceChange.js"></script>
+	</head>
+	<title> Transaction </title>
+			<meta name="author" content= "Vedant Shah">
+			<meta name="description" content="This page is the transaction page where it shows the user how much they have to pay. It also collects the users shipping and contact informaiton.">
+			<meta name="created" content="June 9, 2017">
+			<meta name="last-modified" content="June 19, 2017">	
+	
+	<!-- 
+	Author Name: Vedant Shah
+	File Name: aboutus.html
+	Date Last Modified: June 19, 2017
+	Date Created: June 9, 2017
+	-->
+	
+	<body style="margin:auto; background-color:#ffa280;" onload="retrieve()">
+		<div class="header">
+				<table style="width:100%; height:50px; border:none;"> <!-- This entire table goes credits to Janardan for helping me make a banner at the top of my home page. -->
+					<tr>
+						<td width="10%">
+							<img src="NV Phoenix.png" width="75px" height="75px" alt="The Phoenix"> 
+						</td>
+						<td>
+							<h1 style="text-align:left; color:red;"> The Online Phoenix Store </h1>
+						</td>	
+						<div style="width:2500px;">
+						<td style="color:red;">
+							<a href="canada150.html"><img src="canada.jpg" width="50px" height="30px" alt="Canadian Flag"></a> Canada's 150 Birthday Coupon: ILOVECANADA
+						</td>
+						</div>
+					</tr>
+				</table>	
+		</div>	
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<center><div>
+			<img src="index.jpg">
+		</div></center>
+		<div>
+			<table style="padding:0px; background-color:#66c2ff; width: 1500px; margin:auto; border-collapse:collapse; border:4px solid grey; border-radius:4px;">
+				<tr>
+					<td>
+						<h1 style="text-align:center; color:red;"> The Online Phoenix Store </h1>
+					</td>
+				</tr>
+			</table>
+		</div>
+			<h2 style="text-align: left; font-size:50px; padding-left:10px;"><span style= "color:green;">P</span><span style= "color:red;">-</span><span style= "color:blue;">B</span><span style= "color:purple;">a</span><span style= "color:yellow;">y</span></h2>
+			<center id="Welcome"> </center>
+			<h2 style="color:green; text-align:center;"> Transaction </h2>
+			<div>
+				<table style="width:100%; height:50px;"> <!-- This entire table goes credits to Janardan for helping me make a banner at the top of my home page. -->
+					<tr>
+						<td width="100%">
+							<form name="contactAndShippingInformation">
+								<h2 style="color:red;"> Contact and Shipping Information </h2> <!-- This gets the first name of the user. -->
+								<h3 style="color:red;"><img id="firstname"> *<u>First Name </u></h3>
+								<input name="firstname" type="text" required>
+								<h3 style="color:red;"><img id="lastname"> *<u>Last Name </u></h3> <!-- This gets the last name of the user.  -->
+								<input name="lastname" type="text" required>
+								<h3 style="color:red;"><img id="country"> *<u>Country </u></h3> <!-- The only option is Canada because Northview Heights Secondary School is only Canada. -->
+									<select required>
+										<option value="">Canada</option>
+									</select>
+								<h3 style="color:red;"><img id="streetaddress1"> *<u>Street Address 1 </u></h3> <!-- This gets the first street address of the user (delivery goes here, if not this, then street address 2.  -->
+								<input name="streetaddress1" type="text" required>
+								<h3 style="color:red;"><img id="streetaddress2"> *<u>Street Address 2 </u></h3>
+								<input name="streetaddress2" type="text" required>
+								<h3 style="color:red;"><img id="city"> *<u>City </u></h3> <!-- This is a list where the user can pick what city they live so the delivery goes there. -->
+									<select required>
+										<option value=""> Ajax </option>
+										<option value=""> Brampton </option>
+										<option value=""> Markham </option>
+										<option value=""> Etobicoke </option>
+										<option value=""> Milton </option>
+										<option value=""> Mississauga </option>
+										<option value=""> New Market </option>
+										<option value=""> North York </option>
+										<option value=""> Pickering </option>
+										<option value=""> Richmond Hill </option>
+										<option value=""> Toronto </option>
+										<option value=""> Vaughan </option>
+									</select>
+								<h3 style="color:red;"><img id="province"> *<u>Province </u></h3>
+									<select required>
+										<option value="">Ontario</option>
+									</select>
+								<h3 style="color:red;"><img id="postalCode"> *<u>Postal Code </u></h3>
+								<input name="postalCode" type="text" required>
+								<h3 style="color:red;"><img id="phoneNumber"> *<u>Phone Number </u></h3>
+								<input name="phoneNumber" type="text" required>
+								<br>
+								<button style="text-align:left;" type="button" onclick="check()"> Place My Order Now </button>
+							</form>
+							<p id="feedback"></p>
+						</td>
+						<td width="100%">
+							<table>
+								<tr>
+									<td>
+										Laptop
+									</td>
+									<td>
+										Price ($)
+									</td>
+									<td>
+										Quantity
+									</td>
+								</tr>
+								<tr>
+									<td>
+										Dell XPS 15 
+									</td>
+									<td>
+										<span id="subTotal_1"> </span>
+									</td>
+									<td>
+										<span id="laptop1"> </span>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										Asus Zenbook 3
+									</td>
+									<td>
+										<span id="subTotal_2"> </span>
+									</td>
+									<td>
+										<span id="laptop2"> </span>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										Acer Chromebook 15
+									</td>
+									<td>
+										<span id="subTotal_3"> </span>
+									</td>
+									<td>
+										<span id="laptop3"> </span>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										HP Spectre x360
+									</td>
+									<td>
+										<span id="subTotal_4"> </span>
+									</td>
+										<td>
+										<span id="laptop4"> </span>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										Lenovo ThinkPad X1 Carbon
+									</td>
+									<td>
+										<span id="subTotal_5"> </span>
+									</td>
+									<td>
+										<span id="laptop5"> </span>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										Microsoft Surface Book
+									</td>
+									<td>
+										<span id="subTotal_6"> </span>
+									</td>
+									<td>
+										<span id="laptop6"> </span>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										Apple MacBook Pro 15-Inch
+									</td>
+									<td>
+										<span id="subTotal_7"> </span>
+									</td>
+									<td>
+										<span id="laptop7"> </span>
+									</td>
+								</tr>
+								<tr>
+									<td>	
+										Asus VivoBook
+									</td>
+									<td>
+										<span id="subTotal_8"> </span>
+									</td>
+									<td>
+										<span id="laptop8"> </span>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										Dell i7597
+									</td>
+									<td>
+										<span id="subTotal_9"> </span>
+									</td>
+									<td>
+										<span id="laptop9"> </span>
+									</td>
+								</tr>
+							</table>
+						<div>
+							<h3 style="color:blue;"><b> *Coupon </b></h3>
+							<script>
+								function getUrlVars() {
+									var vars = {};
+									var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+									vars[key] = value;
+									});
+									return vars;
+								}
+								
+								function check1(){
+									var coupon;
+					
+									coupon = document.couponCheck.coupon.value;
+																		
+									//Checks validity of coupon entered by user. 
+									if(coupon == "ILOVECANADA") 
+									{
+										document.getElementById("coupon").src = "checkmark.jpg"; 
+										document.getElementById("coupon").style.alt = "You are correct!";
+										document.getElementById("coupon").style.width = "50px";
+										document.getElementById("coupon").style.height = "50px";
+									}
+										
+									else
+									{
+										document.getElementById("coupon").src = "incorrect.jpg";
+										document.getElementById("coupon").style.alt = "You are wrong!";
+										document.getElementById("coupon").style.width = "50px";
+										document.getElementById("coupon").style.height = "50px";
+									}
+										document.getElementById("coupon").innerHTML = "You do not live in the United States of America.";ss
+								}
+								
+								
+							</script>
+							<form name="couponCheck">
+								Please enter a valid coupon code to recieve an amazing discount.
+								<br>	
+								<input type="text" name="coupon"><img id="coupon"></li>
+								<br>
+								<button type="button" onclick="check1()"> Check Validation of Coupon </button>
+							</form>
+							<p id="feedback"></p>
+						</div>
+						<br>
+						<div>
+							<b> Sub-total (cost of all items before tax) </b> <!-- Calculates sub-total of the purchase. -->
+							<br>
+							<span id="subTotalOfPurchase"> </span>
+						</div>
+						<br>
+						<div>
+							<b> Tax (HST- 13%) </b> <!-- This calculates the tax, HST.  -->
+							<br>
+							<span id="tax_1"> </span>
+						</div>
+						<br>
+						<div>
+							<b> Total (cost of all items after tax- 13%) </b> <!-- This calculates the cost of the entire purchase, with the tax. -->
+							<br>
+							<span id="total_1"> </span>
+						</div>
+						<br>
+						<br>
+						<br>
+						<br>
+						<br>
+						<br>
+						<br>
+						<div>
+							*<u>Payment Method </u><br>
+							<ol>
+								<!-- The list below gives users two choices of what way they want to pay. -->
+								<li class="center">
+									<label><a href="cash.html"><input type="radio" name="paymentmethod" value="1"> Cash on delivery </a></label> 
+								</li>
+								<li class="center">
+									<label><input type="radio" name="paymentmethod" value="2"> Credit Card </label>
+									<img src="creditcard.jpg" width="250px" height="50px" alt="Credit Card Methods">
+									<ul>
+										<li class="center"><a href="americanexpress.html"> American Express </a></li>
+										<li class="center"><a href="mastercard.html"> MasterCard </a></li>
+										<li class="center"><a href="visa.html"> Visa </a></li> 
+									<ul>
+								</li>
+							</ol>
+						</div>		
+					</td>
+				</tr>
+			</table>
+		</div>
+		<br>
+		<br>
+		<br>
+		<br>	
+	</body>
+	<footer style="text-align:center; color:red; background-color:black; padding-bottom:5px; padding-top:5px;">
+		P-Bay. The Online Phoenix Store. Created and Designed by Vedant Shah.
+	</footer>
+</html>

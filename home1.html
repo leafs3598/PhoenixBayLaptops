@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html>
+   <head>
+		<style> 
+			table {
+				   border: none;
+				   align:center;
+				   margin:auto;
+				   width: 200px;
+				   border-collapse: collapse;
+				   margin-top: 0px;
+				   table-layout:fixed;
+			}
+			
+			h1.lightSeaGreen { 
+							  color:#20B2AA;
+							  margin:auto;
+			}
+			
+			.blackLetters {
+						   color: black;
+						   font: Impact;
+						   font-size: 16;
+			}
+			
+			button {
+					background-color:#FFD700;
+					color:black;
+					margin:auto;
+					padding: 0px 100px;  
+					border:2px solid blue;
+					cursor:pointer;
+			}
+			
+			td { 
+				align:center;
+				margin:auto;
+				border-color: none;
+				color:white
+				padding: 0px 1000px;
+				text-align: center;
+				border: none;
+			}
+			
+			button:hover {
+						  background-color: #9C96DB;
+			}
+			
+			a {
+			   cursor: pointer;
+			}
+			
+			td:hover { 
+					  text-decoration:2px solid white;
+					  background-color:#20B2AA; 
+			}
+
+
+			.floating-box {
+						   display: inline-block;
+						   width: 200px;
+						   height: 250px;
+						   margin: 10px;
+						   border: 3px solid #73AD21;  
+			}
+
+			#box {
+				  font-size: 15px;
+			}
+
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+			
+			* {box-sizing:border-box}
+			body {
+				  font-family: Verdana,sans-serif;
+			}
+			.mySlides {
+					   display:none;					  					 
+			}
+
+			/* Slideshow container */
+			.slideshow-container {
+								  max-width: 1000px;
+								  position: relative;
+								  margin: auto;
+			}
+
+			/* Caption text */
+			.text {
+				   color: red;
+				   font-size: 15px;
+				   padding: 8px 12px;
+				   position: absolute;
+				   bottom: 8px;
+				   width: 100%;
+				   text-align: center;
+			}
+
+			/* Number text (1/3 etc) */
+			.numbertext {
+					     color: red;
+					     font-size: 12px;
+					     padding: 8px 12px;
+			             position: absolute;
+			             top: 0;
+			}
+
+			/* The dots/bullets/indicators */
+			.dot {
+				  height: 13px;
+				  width: 13px;
+				  margin: 0 2px;
+				  background-color: #bbb;
+				  border-radius: 50%;
+				  display: inline-block;
+				  transition: background-color 0.6s ease;
+			}
+
+			.active {
+			         background-color: #717171;
+			}
+
+			/* Fading animation */
+			.fade {
+				   -webkit-animation-name: fade;
+				   -webkit-animation-duration: 1.5s;
+				   animation-name: fade;
+				   animation-duration: 1.5s;
+			}
+
+			@-webkit-keyframes fade {
+									 from {
+										   opacity: .4;
+									 } 
+									 to {
+										 opacity: 1;
+									 }
+			}
+
+			@keyframes fade {
+			                 from {
+								   opacity: .4;
+							 } 
+							 to {
+								 opacity: 1;
+							 }
+			}
+
+			/* On smaller screens, decrease text size */
+			@media only screen and (max-width: 300px) {
+													   .text {
+													          font-size: 11px;
+														}
+			}
+			/*Header*/
+			p.button:hover{
+						   color:white;
+						   cursor:pointer;
+			}
+		
+			.header {
+					 height:120px;
+					 background:#1ab2ff;
+					 border:1px solid #1ab2ff;
+					 position:fixed;
+					 top: 0px;
+					 z-index: 1;
+					 width:100%;
+			}
+			.content {
+					  width:960px;
+					  background: #1ab2ff;
+					  border: 1px solid #1ab2ff;
+					  height: 2000px;
+					  margin: 70px auto;
+			}
+		
+			div.relative {
+						  position: relative;
+						  left: 200px;
+			}
+			
+			div.relative1 {
+						   position: relative;
+						   left: 250px;
+			}
+			
+			div.relative2 {
+						   position: relative;
+					       left:400px;
+			}
+			
+			.image {
+					width:100%;
+					margin: 1px top;
+					display:block;
+			}
+			</style>			   
+			<script>
+			/*  DO NOT CHANGE
+			 *	the following function is retrieved from http://papermashup.com/read-url-get-variables-withjavascript/
+			 *  
+			 */
+			function getUrlVars() {
+				var vars = {};
+				var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+				vars[key] = value;
+				});
+				return vars;
+			}
+			/* END of DO NOT CHANGE */
+			
+			//Below, I made a short quiz for users if they wish to try. 
+			function check(){
+				var q1, q2, q3, q4;
+				
+				q1 = document.quiz.q1.value;
+				q2 = document.quiz.q2.value;
+				q3 = document.quiz.q3.value;
+				q4 = document.quiz.q4.value;
+				
+			
+				if(q1 == "19")
+				{
+					document.getElementById("q1").src = "checkmark.jpg"; 
+					document.getElementById("q1").style.alt = "You are correct!";
+					document.getElementById("q1").style.width = "50px";
+					document.getElementById("q1").style.height = "50px";
+				}
+				
+				else
+				{
+					document.getElementById("q1").src = "incorrect.jpg";
+					document.getElementById("q1").style.alt = "You are wrong!";
+					document.getElementById("q1").style.width = "50px";
+					document.getElementById("q1").style.height = "50px";
+				}
+					
+				if(q2 == "St. Louis Blues" || q2 == "blues" || q2 == "Blues")
+				{
+					document.getElementById("q2").src = "checkmark.jpg"; 
+					document.getElementById("q2").style.alt = "You are correct!";
+					document.getElementById("q2").style.width = "50px";
+					document.getElementById("q2").style.height = "50px";
+				}
+				
+				else
+				{
+					document.getElementById("q2").src = "incorrect.jpg";
+					document.getElementById("q2").style.alt = "You are wrong!";
+					document.getElementById("q2").style.width = "50px";
+					document.getElementById("q2").style.height = "50px";
+				}
+				
+				if(q3 == "3")
+				{
+					document.getElementById("q3").src = "checkmark.jpg"; 
+					document.getElementById("q3").style.alt = "You are correct!";
+					document.getElementById("q3").style.width = "50px";
+					document.getElementById("q3").style.height = "50px";
+				}
+				
+				else if(q3 == "1")
+				{
+					document.getElementById("q3").src = "incorrect.jpg";
+					document.getElementById("q3").style.alt = "You are wrong!";
+					document.getElementById("q3").style.width = "50px";
+					document.getElementById("q3").style.height = "50px";
+				}
+				
+				else if(q3 == "2")
+				{
+					document.getElementById("q3").src = "incorrect.jpg";
+					document.getElementById("q3").style.alt = "You are wrong!";
+					document.getElementById("q3").style.width = "50px";
+					document.getElementById("q3").style.height = "50px";
+				}
+				else
+				{
+					document.getElementById("q3").src = "incorrect.jpg";
+					document.getElementById("q3").style.alt = "You are wrong!";
+					document.getElementById("q3").style.width = "50px";
+					document.getElementById("q3").style.height = "50px";
+				}
+				
+				if(q4 == "f")
+				{
+					document.getElementById("q4").src = "checkmark.jpg" ; 
+					document.getElementById("q4").style.alt = "You are correct!";
+					document.getElementById("q4").style.width = "50px";
+					document.getElementById("q4").style.height = "50px";
+				}
+				
+				else
+				{
+					document.getElementById("q4").src = "incorrect.jpg";
+					document.getElementById("q4").style.alt = "You are wrong!";
+					document.getElementById("q4").style.width = "50px";
+					document.getElementById("q4").style.height = "50px";
+				}
+				
+			}
+		</script>
+	</head>
+		<title> Home </title>
+				<meta name="author" content= "Vedant Shah">
+				<meta name="description" content="Hello! My name is Vedant Shah. This page is the welcome page which greets users to P-Bay.">
+				<meta name="created" content="June 6, 2017">
+				<meta name="last-modified" content="June 19, 2017">
+		
+		<!-- 
+		Author Name: Vedant Shah
+		File Name: home1.html
+		Date Last Modified: June 19, 2017
+		Date Created: June 6, 2017
+		-->
+		
+	<body style="margin:auto; background-color:#ffa280;">
+		<div class="header">
+			<table style="width:100%; height:50px;"> <!-- This entire table goes credits to Janardan for helping me make a banner at the top of my home page. -->
+				<tr>
+					<td width="10%">
+						<img src="NV Phoenix.png" width="75px" height="75px" alt="The Phoenix"> 
+					</td>
+					<td>
+						<h1 style="text-align:left; color:red;"> The Online Phoenix Store </h1>
+					</td>	
+					<div style="width:2500px;">
+						<td style="color:red;">
+							<a href="canada150.html"><img src="canada.jpg" width="50px" height="30px" alt="Canadian Flag"></a> Canada's 150 Birthday Coupon: ILOVECANADA
+						</td>
+						<td width="100px">
+							<a href="home1.html"><img src="home.jpg" width="95px" height="105px" alt="Home"></a>
+						</td>
+						<td width="100px">
+							<a href="login.html"><img src="login.jpg" width="75px" height="75px" alt="Login"></a>
+						</td>
+						<td width="100px">
+							<a href="inventory.html"><img src="shoppingcart.jpg" width="60px" height="60px" alt="Inventory"></a>
+						</td>
+						<td width="100px">
+							<a href="aboutus.html"><img src="aboutus.jpg" width="60px" height="60px" alt="About Us"></a>
+						</td>
+					</div>
+				</tr>
+			</table>	
+		</div>	
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<center><div>
+			<img src="index.jpg">
+		</div></center>
+		<div>
+			<table style="padding:0px; background-color:#66c2ff; width: 1500px; margin:auto; border-collapse:collapse; border:4px solid grey; border-radius:4px;">
+				<tr>
+					<td>
+						<h1 style="text-align:center; color:red;"> The Online Phoenix Store </h1>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div>
+			<table style="padding:0px; width: 1500px; margin:auto; border-collapse:collapse; border-radius:4px;">
+				<tr>
+					<td>
+						<h2 style="text-align: left; font-size:50px; padding-left:10px;"><span style= "color:green;">P</span><span style= "color:red;">-</span><span style= "color:blue;">B</span><span style= "color:purple;">a</span><span style= "color:yellow;">y</span></h2>
+						<div>
+							<h1 style="color:red; font:Impact; margin:auto; text-align:center;"><b> Welcome to P-Bay! </b></h1>
+						</div>
+						<h3 style="color:blue; font:Impact; margin:auto; font-size:25px; text-align:center;"> Hello! Welcome to P-Bay! Here, you will find a variety of different 
+							computers from the best brands such as Dell, Asus, Acer, Apple, Samsung, Lenovo, and much more. This site is exclusive for students at Northview Heights Secondary School. Happy Shopping!
+						</h3>
+						<!-- Below is a slideshow where users can see some images of the laptops I intend to sale. -->
+						<div class="slideshow-container">
+							<div class="mySlides fade">
+								<div class="numbertext">1 / 6</div>
+								<center><img class="image" src="laptop4.jpg"></center>
+								<br>
+							</div>
+							<div class="mySlides fade">
+								<div class="numbertext">2 / 6</div>
+								<center><img class="image" src="laptop2.jpg"></center>
+								<br>
+							</div>
+							<div class="mySlides fade">
+								<div class="numbertext">3 / 6</div>
+								<center><img class="image" src="laptop3.jpg"></center>
+								<br>
+							</div>
+							<div class="mySlides fade">
+								<div class="numbertext">4 / 6</div>
+								<center><img class="image" src="laptop1.jpg"></center>
+								<br>
+							</div>
+							<div class="mySlides fade">
+								<div class="numbertext">5 / 6</div>
+								<center><img class="image" src="laptop5.jpg"></center>
+								<br>
+							</div>
+							<div class="mySlides fade">
+								<div class="numbertext">6 / 6</div>
+								<center><img class="image" src="laptop6.jpg"></center>
+								<br>
+							</div>
+						</div>
+						<br>
+						<div style="text-align:center">
+						  <span class="dot"></span> 
+						  <span class="dot"></span> 
+						  <span class="dot"></span> 
+						</div>
+						<script>
+						var slideIndex = 0; //This goes credits to W3 Schools.
+						showSlides();
+
+						function showSlides() 
+						{
+							var i;
+							var slides = document.getElementsByClassName("mySlides");
+							var dots = document.getElementsByClassName("dot");
+							
+							for (i = 0; i < slides.length; i++) //After each iteration, the value of i will be increased by 1.
+							{
+							   slides[i].style.display = "none";  
+							}
+							slideIndex++;
+								
+							if (slideIndex> slides.length) 
+							{
+								slideIndex = 1
+							}    
+							
+							for (i = 0; i < dots.length; i++) 
+							{
+								dots[i].className = dots[i].className.replace(" active", "");
+							}
+							slides[slideIndex-1].style.display = "block";  
+							dots[slideIndex-1].className += " active";
+							setTimeout(showSlides, 5000); // Changes image every 2 seconds
+						}
+						</script>
+						<br>
+						<div style="text-align:center">
+						  <span class="dot" onclick="currentSlide(1)"></span> 
+						  <span class="dot" onclick="currentSlide(2)"></span> 
+						  <span class="dot" onclick="currentSlide(3)"></span> 
+						</div>
+						<div>
+							<span style="color:black; font-size:30px;"> Did You Know? </span>  
+							<br>
+							<!-- Below is just a fun fact that teaches users some history of laptops! -->
+							<span style="color:black; text-align:left;"> The first laptop was released in 1981 and the name of that laptop was "Osborne 1"!</span>
+						</div>
+						<h2> POP QUIZ! Below is a simple quiz that you can take for fun! Good luck!
+						<form name= "quiz">
+							<fieldset>
+								<legend style= "font-size:25px; color:purple; font:Impact;">Write the Correct Answer</legend>
+									<ol>
+										<li style="text-align:left; font-size:18px;">What is 9+10-9+10-1?<input type="text" name="q1">.<img id="q1"></img></li>
+										<br>
+										<br>
+										<li style="text-align:left; font-size:18px;">What is the NHL team for the city of St. Louis? <input type="text" name="q2">.<img id="q2"></img></li>
+									</ol>
+							</fieldset>
+							<fieldset>
+								<legend style= "font-size:25px; color:purple; font:Impact;">Multiple Choice & True and False </legend>
+									<ol>
+										<li style="text-align:left; font-size:18px;"><img src="pinkcity.jpg" width="300" height="300" alt="Pink City">
+										<br>
+							<!--
+								"Pink City" is another name for the city of Jaipur because most of the buildings there are pink, hence the name "Pink City". It is located in Rajasthan and it is a very magnificient place as the scenery and castles are extremely beautiful. 
+								I would recommend anyone to go there.
+							-->
+											Also known as the "Pink City", what state is this city in India? (Hint: Look at the image above.) <img id="q3"></img>
+											<br>
+											<label><input type="radio" name="q3" value="1"> Mumbai </label>
+											<label><input type="radio" name="q3" value="2"> Gujarat </label>
+											<label><input type="radio" name="q3" value="3"> Rajasthan </label>
+											<label><input type="radio" name="q3" value="4"> New Delhi </label>
+										</li>
+										<br>
+										<br>
+							<!--
+								The following question was meant to be a trick question because disodium guanylate has a molar mass of 407.19 g/mol. I added an extra "9" to see if people fell for this trick. 
+							-->
+										<li style="text-align:left; font-size:18px;">Is the Molar mass of disodium guanylate 407.199 g/mol? <img id="q4"></img>
+											<label><input type="radio" name="q4" value="t"> True  </label>
+											<label><input type="radio" name="q4" value="f"> False </label>
+										</li>
+									</ol>
+							</fieldset>
+							<button type="button" onclick="check()"> Submit My Answers </button>
+						</form>
+						<p id="feedback"></p>
+						<h2> *Log in or sign up before purchasing laptops.* </h2>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</body>
+	<!-- Below is the credits that I have given to myself to indicate I am the creator and designer of this site. -->
+	<footer style="text-align:center; color:red; background-color:black; padding-bottom:5px; padding-top:5px;">
+		P-Bay. The Online Phoenix Store. Created and Designed by Vedant Shah.
+	</footer>
+</html>
+
+
+
+
+
